@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Drug Risk Predictor</h1>
+            <p>AI-powered assessment based on personality and demographics.</p>
+        </header>
+
+        <main>
+            <div id="wizard-container" class="card">
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <div id="question-area">
+                    <h2 id="question-title">Question</h2>
+                    <div id="options-container">
+                    </div>
+                </div>
+
+                <div id="navigation">
+                    <button id="prev-btn" class="btn secondary" style="display: none;">Back</button>
+                </div>
+            </div>
+
+            <div id="loading" class="card" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing profile...</p>
+            </div>
+
+            <div id="results-container" class="card" style="display: none;">
+                <h2>Assessment Results</h2>
+                <div class="table-wrapper">
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>Drug</th>
+                                <th>Predicted Risk</th>
+                                <th>Confidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="disclaimer-box">
+                    <h3>DISCLAIMER: Interpreting the Results</h3>
+                    <p>These predictions combine a usage risk category with a confidence score. For example, a result of
+                        <strong>Crack | Used in Last Week | 52%</strong> indicates that the model estimates a 52%
+                        probability that the individual falls into the 'Used in Last Week' category for Crack
+                        consumption. These are statistical estimates based on personality profiles and should not be
+                        taken as definitive proof of drug use.
+                    </p>
+                </div>
+
+                <button id="restart-btn" class="btn primary">Start Over</button>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
